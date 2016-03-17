@@ -8,10 +8,12 @@ function SomeDirective() {
 		compile: function (element) {
 			return {
 				pre: function (scope, element, attrs) {
-					element[0].innerText = "New Text";
+					element[0].innerText = "Click to change";
 				}
 				post: function (element) {
-					element[0].innerText = "Post Text";
+					element[0].addEventListener('click', function() {
+						alert('Thanks for clicking!');
+					});
 				}
 			}
 		}
