@@ -5,8 +5,33 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
+		controller: function() {
+			console.log('controller');
+		},
+		compile: function($element, $attrs) {
+			console.log('compile');
+			return{
+				pre: function(scope, element, attrs) {
+					console.log(element[0].innerText = 'this is different');
+				},
+				// post: function(scope, element, attrs) {
+				//
+				// }
+				// console.log($element);
+				// console.log($attrs.$$element[0].outerText);
+				// $element.outerText = "this is different";
+				// console.log($element.outerText)
+			}
+			// Use the compile function to change the textContent of our directive.
+		},
+		link: function (scope, element, attrs) {
+			console.log(scope);
+			console.log(element);
+			console.log(attrs);
+			// return{
+				element.addEventListener('click', function(){alert('did this work?')});
+			// }
+			// Then, use the link function to add an event listener to the directive.
 		}
 	}
 }
