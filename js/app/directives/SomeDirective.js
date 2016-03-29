@@ -6,7 +6,7 @@ function SomeDirective() {
 			'</div>'
 		].join(''),
 		link: function (scope, elem, attrs) {
-
+			elem.text('This is the new text')
 		}
 	}
 }
