@@ -13,7 +13,7 @@ function SomeDirective() {
         post: function(scope, element, attrs){
           element[0].addEventListener('click', function(){
             alert('You clicked me');
-          })
+          });
         }
       }
     }
