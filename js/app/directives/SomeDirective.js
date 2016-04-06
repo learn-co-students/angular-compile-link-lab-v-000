@@ -5,10 +5,19 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
-		}
-	}
+		controller: function(){
+		},
+		compile: function ($element, $attrs){
+			return{
+				pre: function(scope, element, attrs){
+					 '<div>I replaced this text!</div>'
+				},
+				post: function(scope, element, attrs){
+					 '<div ng-show="active"></div>'
+				};
+			};
+		};
+	};
 }
 
 angular
