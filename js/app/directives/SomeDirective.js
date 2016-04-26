@@ -8,12 +8,12 @@ function SomeDirective() {
 		compile: function {
 			return {
 				pre: function(scope, element , attrs) {
-					element.value= "New value!";
+					element[0].value= "New value!";
 				}
 			}
 		}
 		link: function (scope, elem, attrs) {
-       elem.addEventListener('click', function() {
+       elem[0].addEventListener('click', function() {
 				 console.log("I am clicked!");
 			 });
 		}
