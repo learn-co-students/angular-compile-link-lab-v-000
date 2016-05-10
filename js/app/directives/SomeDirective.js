@@ -5,10 +5,16 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
+		// compile: function($element, $attrs) {
+		// 	$element.text("this");
+		// },
+		link: function ($scope, $element, $attrs) {
+			debugger;
+			$element.on("click", function(){
+				alert("hello world");
+			});
 		}
-	}
+	};
 }
 
 angular
