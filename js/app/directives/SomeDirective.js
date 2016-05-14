@@ -5,10 +5,23 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
+		compile: function (scope, elem, attrs) {
 
-		}
-	}
+			return {
+				pre: function (scope, elem, attrs){
+					elem[0].textContent = 'Replaced';
+				},
+
+				post: function(s, e, a){
+					e.on('click', function(){
+						alert('yo');
+					});
+				}
+			};
+
+		},
+	};
+
 }
 
 angular
