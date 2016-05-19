@@ -6,8 +6,11 @@ function SomeDirective() {
 			'</div>'
 		].join(''),
 		link: function (scope, elem, attrs) {
-
-		}
+			elem.append(scope);
+		},
+		compile: function($element, $attrs) {
+			$element.text('New text!');
+		},
 	}
 }
 
