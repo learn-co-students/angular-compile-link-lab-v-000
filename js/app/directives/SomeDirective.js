@@ -8,6 +8,17 @@ function SomeDirective() {
 		link: function (scope, elem, attrs) {
 
 		}
+		compile: function ($element, $attrs) {
+			$element = '<div>REPLACED</div>';
+
+			return {
+				post: function (scope, element, attrs) {
+					$('div').click(function() {
+						console.log('div clicked');
+					});
+				}
+			}
+		}
 	}
 }
 
