@@ -5,8 +5,17 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
+		compile: function($element, $attrs) {
+			return {
+				pre: function(scope, element, attrs) {
+					element[0].innerText = 'this is new text';
+				},
+				post: function(scope, element, attrs) {
+					element[0].on('click', function() {
+						alert('Clicked');
+					});
+				}
+			}
 		}
 	}
 }
