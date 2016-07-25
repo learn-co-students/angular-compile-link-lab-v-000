@@ -11,7 +11,7 @@ function SomeDirective() {
 					element[0].innerText = "new text!";
 				},
 				post: function (scope, element, attrs) {
-					element[0].addEventListener("click", function(){alert("Hellow World!");});
+					element[0].addEventListener("click", function(){alert("Hello World!");});
 				}
 			}
 	}
