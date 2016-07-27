@@ -5,6 +5,7 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
+		compile: function($element, $attrs),
 		link: function (scope, elem, attrs) {
 
 		}
