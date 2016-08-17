@@ -8,18 +8,18 @@ function SomeDirective() {
 		link: function (scope, elem, attrs) {
 
 		},
-		compile: function ($element, $attrs) {
-$element.text('nope');
- 
-return {
-post: function (scope, element, attrs) {
-element.on('click', function (event){
-	alert('hello!');
-})
-}
-}
-}
-
+		compile: function (element) {
+			return {
+				pre: function (scope, element, attrs) {
+					element[0].innerText = 'Changed text';
+				},
+				post: function (scope, element, attrs) {
+					element[0].addEventListener('click', function () {
+						alert('Hey!');
+					});
+				}
+			}
+		}
 	}
 }
 
