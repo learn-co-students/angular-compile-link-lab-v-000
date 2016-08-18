@@ -2,12 +2,22 @@ function SomeDirective() {
 	return {
 		template: [
 			'<div>',
-				'Replace this text!',
+				'{{ message }}',
 			'</div>'
 		].join(''),
 		link: function (scope, elem, attrs) {
 
-		}
+		},
+		compile: function (elem, attrs) {
+      return {
+        pre: function (scope, elem, attrs) {
+        	scope.message = 'Replace this text!';
+        },
+        post: function (scope, elem, attrs) {
+          scope.message = 'New text';
+        }
+      }
+    }
 	}
 }
 
