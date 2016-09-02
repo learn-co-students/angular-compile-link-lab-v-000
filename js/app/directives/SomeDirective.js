@@ -9,7 +9,9 @@ function SomeDirective() {
 			elem.html("This is new text!");
 			return {
 				post: function(scope, elem, attrs) {
-
+					elem.on('click', function() {
+						alert("You clicked me!");
+					})
 				}
 			}
 		}
