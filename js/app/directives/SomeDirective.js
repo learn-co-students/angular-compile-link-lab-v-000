@@ -5,7 +5,22 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
+	
+
+		compile: function($elem, $attrs) {
+		
+			return {
+
+				pre: function(scope,elem,attrs) {
+				debugger
+				},
+
+				post: function(scope, elem, attrs) {
+					elem.replaceWith('<some-directive>Hudson</>')
+				
+				
+				}
+			}
 
 		}
 	}
