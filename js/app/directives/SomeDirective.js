@@ -5,9 +5,18 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
-		}
+		compile: function compile(tElement, tAttrs, transclude) {
+      return { 
+       pre: function preLink(scope, iElement, iAttrs, controller) { 
+       	iElement[0].querySelector('div').innerHTML = "Changed the text using compile!!"; 
+       },
+       post: function postLink(scope, iElement, iAttrs, controller) { 
+       	iElement[0].addEventListener('click', function(){
+					alert('Clicked!!');
+				});
+       }
+      }
+    }
 	}
 }
 
