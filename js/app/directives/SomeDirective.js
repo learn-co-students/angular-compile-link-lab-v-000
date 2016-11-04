@@ -7,20 +7,18 @@ function SomeDirective() {
 		].join(''),
 		compile: function(scope, elem, attrs) {
 			return {
-				pre: function(scope, elem, attrs) {
+				pre: function(scope, elem, attrs){
 					elem[0].innerText = 'Changed text';
 				},
-				post: function(scope, elem, attrs) {
-					elem[0].addEventListener('click', function(){
+				post: function(scope, elem, attrs){
+					elem[0].on('click', function(){
 						console.log("attached listener");
-					})
+					});
 				}
 			}
-		},
-		link: function (scope, elem, attrs) {
 		}
-	}
-}
+	};
+};
 
 angular
 	.module('app')
