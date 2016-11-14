@@ -6,8 +6,18 @@ function SomeDirective() {
 			'</div>'
 		].join(''),
 		link: function (scope, elem, attrs) {
+			elem[0].innerText = "Anything";
+		},
+		// compile: function($element, $attrs) {
+		// 	return {
+		// 		pre: function() {
 
-		}
+		// 		},
+		// 		post: function() {
+
+		// 		}
+		// 	}
+		// }
 	}
 }
 
