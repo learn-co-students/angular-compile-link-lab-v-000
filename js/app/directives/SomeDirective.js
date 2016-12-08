@@ -14,7 +14,7 @@ function SomeDirective() {
 					element[0].innerText = "New Text!";
 				},
 				post: function(scope, element, attrs) {
-					element[0].addEventListener("click", function(event) {
+					element.on("click", function(event) {
 						alert("Clicky click!");
 					});
 				}
