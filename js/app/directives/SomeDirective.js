@@ -5,8 +5,16 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
+		compile: function($elem, $attrs) {
+			return {
+				pre: function(scope, elem, attrs){
+					$('div').text = 'Changed text!';
+				},
+				post: function(scope, elem, attrs){
+					$('div').on('click', function(){
+						console.log("Attached listener!");
+					});
+				}
 		}
 	}
 }
