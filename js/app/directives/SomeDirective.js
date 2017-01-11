@@ -5,8 +5,13 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
+		compile: function (element, attrs) {
+			element[0].textContent = "My name is Christian.";
+			return {
+				post: function (scope, element, attrs) {
 
+				}
+			}
 		}
 	}
 }
