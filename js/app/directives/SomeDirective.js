@@ -5,11 +5,15 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		compile: function (element, attrs) {
-			element[0].textContent = "My name is Christian.";
+		compile: function (element) {
 			return {
+				pre: function(scope, element, attrs) {
+					element[0].textContent = "In case you were wondering...";
+				},
 				post: function (scope, element, attrs) {
-
+					element[0].addEventListener('mouseover', function() {
+						alert("My name is Christian.");
+					});
 				}
 			}
 		}
