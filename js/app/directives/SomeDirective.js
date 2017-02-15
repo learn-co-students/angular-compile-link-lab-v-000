@@ -1,11 +1,12 @@
 function SomeDirective() {
 	return {
-		scope: {},
+
 		template: [
-			'<div>',
+			'<div ng-controller="counter">',
 				'Replace this text!', '{{counter.count}}',
 			'</div>'
 		].join(''),
+		scope: {},
 		controller: function() {
 			this.count = 0;
 			this.addOne = function() {
@@ -24,8 +25,10 @@ function SomeDirective() {
 				},
 				post: function(scope, element, attrs) {
 					//element[0].setAttribute("ng-controller", "counter")
-					element[0].setAttribute("ng-click", "counter.addOne()");
-
+					//element[0].setAttribute("ng-click", "counter.addOne()");
+					element[0].addEventListener('click', function () {
+						alert('Hi!');
+					});
 				//element[0].addEventListener('ng-click', "counter.addOne()")
 					//element[0].innerText += '{{counter.count}}'
 				}
