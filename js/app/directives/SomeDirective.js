@@ -3,7 +3,7 @@ function SomeDirective() {
 		scope: {},
 		template: [
 			'<div>',
-				'Replace this text!', '{{counter.count}}'
+				'Replace this text!', '{{counter.count}}',
 			'</div>'
 		].join(''),
 		controller: function() {
