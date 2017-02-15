@@ -25,9 +25,9 @@ function SomeDirective() {
 					//element[0].setAttribute("ng-controller", "counter")
 					element[0].setAttribute("ng-click", "counter.addOne()");
 
-				element[0].addEventListener('click', function () {
-					alert('Heyyyyyy!');
-				});
+				//element[0].addEventListener('click', function () {
+				//	alert('Heyyyyyy!');
+				//});
 					element[0].innerText += '{{counter.count}}'
 				}
 			}
