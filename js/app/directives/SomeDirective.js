@@ -1,8 +1,9 @@
 function SomeDirective() {
 	return {
+		scope: {},
 		template: [
 			'<div>',
-				'Replace this text!',
+				'Replace this text!', '{{counter.count}}'
 			'</div>'
 		].join(''),
 		controller: function() {
@@ -17,7 +18,7 @@ function SomeDirective() {
 		compile: function($element, $attrs) {
 			return {
 				pre: function(scope, element, attrs) {
-					element[0].innerText = 'changed to counter' //targeted element innerText correctly
+					element[0].innerText += 'changed to counter' //targeted element innerText correctly
 					//element.text().replace(element.text(), "this") //didn't target correctly
 					//element.replaceWith("changed that shit"); //changed the whole element
 				},
@@ -25,10 +26,8 @@ function SomeDirective() {
 					//element[0].setAttribute("ng-controller", "counter")
 					element[0].setAttribute("ng-click", "counter.addOne()");
 
-				//element[0].addEventListener('click', function () {
-				//	alert('Heyyyyyy!');
-				//});
-					element[0].innerText += '{{counter.count}}'
+				//element[0].addEventListener('ng-click', "counter.addOne()")
+					//element[0].innerText += '{{counter.count}}'
 				}
 			}
 		}
