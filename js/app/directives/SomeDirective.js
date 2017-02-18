@@ -5,10 +5,22 @@ function SomeDirective() {
 				'Replace this text!',
 			'</div>'
 		].join(''),
-		link: function (scope, elem, attrs) {
-
+		controller: function(){
+			console.log("in the controller");
+		},
+		compile: function(element, attrs){
+			console.log(element.html());
+			element.text("changed");
+			return{
+				post: function (scope, element, attrs){
+					console.log(element.text());
+					element[0].addEventListener('click', function(e){
+						alert("you just clicked this");
+					});
+				}
+			};
 		}
-	}
+	};
 }
 
 angular
